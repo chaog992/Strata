@@ -1,0 +1,5 @@
+# sha256 (first 16 hex) of the pf-q2n4 (a76ab44b) and pf-q2n3 (17f1bd35) binaries: not identical; both embed their source tree's path (/ab/src/src-pf-q2n4 vs src-pf-q2n3; `strings | grep -c` finds it twice in each engine), and the test source differs. src/ is byte-identical at the two revisions (measurement-provenance.json).
+7ca48cbb947478074  engines/pf-q2n4/strata
+fee7db6587cdf51c8  engines/pf-q2n3/strata
+b12cea3bd49fe7780  engines/pf-q2n4/prefill_fused_iq_test
+87b82d541726df629  engines/pf-q2n3/prefill_fused_iq_test

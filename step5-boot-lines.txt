@@ -1,0 +1,21 @@
+## step 5, arm b4864, round 0 (--prefill forced)
+[strata] 2026-10-22 11:25:42 engine started: /ab/engines/pf-q2n/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata serve: 4163 MiB of VRAM free with everything loaded
+
+## step 5, arm q4864, round 0 (--prefill forced)
+[strata] 2026-10-22 11:27:40 engine started: /ab/engines/pf-q2n/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata serve: 4163 MiB of VRAM free with everything loaded
+
+## step 5, arm b5632, round 0 (--prefill forced)
+[strata] 2026-10-22 11:29:34 engine started: /ab/engines/pf-q2n/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata serve: prompt chunk 5632 -> 2816 tokens so its buffers fit in every expert cache
+strata serve: 4163 MiB of VRAM free with everything loaded
+
+## step 5, arm q5632, round 0 (--prefill forced)
+[strata] 2026-10-22 11:31:54 engine started: /ab/engines/pf-q2n/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata serve: 4163 MiB of VRAM free with everything loaded
+

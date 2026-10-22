@@ -1,0 +1,9 @@
+# step 8 switch checks with the test binary (prefill_fused_iq_test --only='Q2_0 / Q2_0' --no-timing; --only insists, so 'not covered' = the pair is off)
+# NOTE: the test binary sets STRATA_PF_FUSED=1 itself when the variable is absent (tests/cuda/prefill_fused_iq_test.cpp, setenv with overwrite 0).
+# So the first and last rows ran with STRATA_PF_FUSED=1 added by the test. The opt-in ALONE is shown by the ctest entry (step8-ctest.log: STRATA_PF_FUSED empty) and by step8-engine-alone.txt.
+# The raw switch.log on the box kept only the last case (the script overwrote it); these rows are the script's console output.
+
+  Q2N (test adds PF_FUSED=1): rc=0 :: prefill fused MoE (native formats) parity passed
+  Q2N + PF_FUSED=0: rc=1 :: prefill fused MoE (native formats) parity failed: Q2_0 / Q2_0: not covered by the native kernels
+  Q2N + PF_FUSED=1: rc=0 :: prefill fused MoE (native formats) parity passed
+  nothing set (test adds PF_FUSED=1, i.e. the old variable alone): rc=1 :: prefill fused MoE (native formats) parity failed: Q2_0 / Q2_0: not covered by the native kernels

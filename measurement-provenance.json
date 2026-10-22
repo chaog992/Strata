@@ -1,0 +1,68 @@
+{
+ "submitted_revision": "a76ab44b5c38b876f4e846bdff58cb3258f0ac46",
+ "base_revision": "011c9e600a93bbc9fd451c563501b5831c32bbca",
+ "measured_revisions": {
+  "24c86452": {
+   "sha": "24c864527a7c2a7cc4a8ea13702ffd6285313b11",
+   "used_for": "step 4 (kernel test, A/B auto chunk, KL 8 prompts), step 5 (fixed-chunk A/B, KL 8 fresh), step 6 (KL 40 fresh)",
+   "src_vs_submitted": "24c86452 changed only src/prefill/moe_fused_iq.cu against v0.2.2 (no ctest entry, v0.2.2's test, no DETAILS entry yet). Against 17f1bd35 its moe_fused_iq.cu lacks the Q2_0 / Q2_0 pair check, has dev_info() called before the IQ-format check in native_supported's unset branch, and does not keep occ on a failed setup; CMakeLists.txt lacks the q2n ctest entry; the test still forces STRATA_PF_FUSED=1. 'git apply measurement-from-head.patch' on a76ab44b gives 24c86452's CMakeLists.txt, src/ and tests/ (docs/DETAILS.md is not in the patch).",
+   "lab_build_tag": "pf-q2n (src-pf-q2n.tar.gz; engines/pf-q2n)"
+  },
+  "2f52b21d": {
+   "sha": "2f52b21d2f0f934a0b20ec6a36a44414c3e1b18b",
+   "used_for": "step 7 (ctest, kernel test, identity vs v0.2.2 on 40 prompts, set logits vs 24c86452's)",
+   "src_vs_submitted": "src/ identical; CMakeLists.txt, tests/cuda/prefill_fused_iq_test.cpp and docs/DETAILS.md differ (the test's --unset-pf-fused flag and its skip below sm_80, the ctest entry's command and environment, the DETAILS text in its own subsection)",
+   "lab_build_tag": "pf-q2n2 (src-pf-q2n2.tar.gz; engines/pf-q2n2)"
+  },
+  "17f1bd35": {
+   "sha": "17f1bd35721100614bd03debbfb1054e9bf6dcc0",
+   "used_for": "step 8 (ctest with STRATA_PF_FUSED empty, the switch matrix, the engine with the opt-in alone)",
+   "src_vs_submitted": "src/ identical; CMakeLists.txt, tests/cuda/prefill_fused_iq_test.cpp and docs/DETAILS.md differ (the test's --unset-pf-fused flag and its skip below sm_80, the ctest entry's command and environment, the DETAILS text moved into its own subsection)",
+   "lab_build_tag": "pf-q2n3 (src-pf-q2n3.tar.gz; engines/pf-q2n3)"
+  },
+  "a76ab44b": {
+   "sha": "a76ab44b5c38b876f4e846bdff58cb3258f0ac46",
+   "used_for": "step 9 (ctest, the switch checks with the test binary incl. an emulated 7.5 card, the engine with the opt-in alone and with STRATA_PF_FUSED=0 added, the kernel test with --unset-pf-fused)",
+   "src_vs_submitted": "the submitted revision",
+   "lab_build_tag": "pf-q2n4 (src-pf-q2n4.tar.gz; engines/pf-q2n4)"
+  }
+ },
+ "source_sha256": {
+  "24c86452": {
+   "src/prefill/moe_fused_iq.cu": "e485afbccf0f28ab34fa5c29287b815a963fdf32e425550118aabc6393707aa9",
+   "tests/cuda/prefill_fused_iq_test.cpp": "e52daba8363fa6991831e74ec971a49167069f2cd468349d30f14e81f285742f",
+   "CMakeLists.txt": "831e095f7d7c0243055e5adc39a286198cc1372669add593e015036c102ad921",
+   "docs/DETAILS.md": "1c77824b91b0bf3f7848f0ca0498368e2f9e81ba12a0120a46011bfcd189c515"
+  },
+  "2f52b21d": {
+   "src/prefill/moe_fused_iq.cu": "f241ea1827659644a4902cf551313052e168e3e6d1d911f35994fc4fe9967d9c",
+   "tests/cuda/prefill_fused_iq_test.cpp": "6c50a9bfcecec54b493c1fc88d86e6f3bba5c2f82b442278b6fc3d97525b4eb5",
+   "CMakeLists.txt": "d283acf6830389d84db134491283b42b194eb78aaaf4a493ab3b7add095feb70",
+   "docs/DETAILS.md": "c84cfe345d99811a7b2703735a5384a6c2a93f91342db6d4d0265bd6ab57a696"
+  },
+  "17f1bd35": {
+   "src/prefill/moe_fused_iq.cu": "f241ea1827659644a4902cf551313052e168e3e6d1d911f35994fc4fe9967d9c",
+   "tests/cuda/prefill_fused_iq_test.cpp": "876786a6763bdf54214b69b1171a44b6c377bf3ee1d40b040aff6f4f0973c97f",
+   "CMakeLists.txt": "84f7cd82406b425a0d4f950004a4f572e236a1d455d37997b217e7faa1658dff",
+   "docs/DETAILS.md": "c84cfe345d99811a7b2703735a5384a6c2a93f91342db6d4d0265bd6ab57a696"
+  },
+  "a76ab44b": {
+   "src/prefill/moe_fused_iq.cu": "f241ea1827659644a4902cf551313052e168e3e6d1d911f35994fc4fe9967d9c",
+   "tests/cuda/prefill_fused_iq_test.cpp": "3d5a16af494919e94ce4a177d12eb0d1cf6fee62bcb8f2350e672ea19d3416d2",
+   "CMakeLists.txt": "7c701408dd906bbd68c077e8d5a41ccaa66f968284951f369892778ef71deec1",
+   "docs/DETAILS.md": "ab66691948f7030346b4ff1e82a0cd865f573c4c19484b2870fe60cb80fa88c4"
+  }
+ },
+ "lab_runs": {
+  "step4": "step4-1022-1840",
+  "step5": "step5-1022-1925",
+  "step6": "step6-1022-2110",
+  "step7": "step7-1022-2157",
+  "step8": "step8-1023-0033",
+  "step9": "step9-1023-0617"
+ },
+ "engines": {
+  "stock": "v0.2.2 = 011c9e60, built the same way",
+  "builder": "nvidia/cuda:13.0.0-devel-ubuntu24.04 (nvcc V13.0.48, engines/*/nvcc.txt), cmake 4.4.3, ninja 1.13.2, -DCMAKE_CUDA_ARCHITECTURES=120-real;120-virtual, STRATA_PORTABLE=ON (build_engines.sh); the ptxas receipt (ptxas-sm120.txt) is a separate compile with CUDA 13.0.88"
+ }
+}

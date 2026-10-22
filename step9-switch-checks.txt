@@ -1,0 +1,17 @@
+# step 9 switch checks with the test binaries (prefill_fused_iq_test --only='Q2_0 / Q2_0' --no-timing; --only insists, so 'not covered' = the pair is off)
+# Rows 1-5 and 7: this commit's test (engines/pf-q2n4); row 6: step 8's test binary (engines/pf-q2n3, which sets STRATA_PF_FUSED=1 unless the caller set it).
+# 'flag' = --unset-pf-fused (STRATA_PF_FUSED left unset: the engine's default); without it the test sets STRATA_PF_FUSED=1 (v0.2.2's behaviour).
+# Rows 5-7 run under STRATA_EMULATE_CC (include/strata/core/emulate.hpp: the host answers compute-capability queries as that card would; the device code stays this build's sm_120).
+# Row 7 (an emulated 8.6 card) failed in the test's MMQ reference path ('uploads: an illegal memory access'; step9-switch-7.log) before the fused kernel ran:
+# Strata's device info hands MMQ the emulated capability (src/prefill/ggml_cuda_host.cu, d.cc from strata::cc_major_of), so MMQ's host-side tile configuration
+# is an 8.6 card's while its kernels are built for sm_120. emulate.hpp says the emulation is for a build whose device code is the emulated architecture's
+# (CMAKE_CUDA_ARCHITECTURES=86-virtual); this build is 120-real;120-virtual. The row says nothing about an 8.6 card; it is kept because it was run.
+# Row 5 skips before any kernel runs (the test reads the capability and returns 77), so it is a check of the test's new skip, not of a Turing card's kernels.
+
+  flag, Q2N alone (the ctest entry): rc=0 :: prefill fused MoE (native formats) parity passed
+  flag, nothing set: rc=1 :: prefill fused MoE (native formats) parity failed: Q2_0 / Q2_0: not covered by the native kernels
+  no flag, Q2N (the test sets PF_FUSED=1): rc=0 :: prefill fused MoE (native formats) parity passed
+  no flag, nothing set (PF_FUSED=1 from the test): rc=1 :: prefill fused MoE (native formats) parity failed: Q2_0 / Q2_0: not covered by the native kernels
+  flag, Q2N, emulated 7.5 card with SM75=1 (this commit's test): rc=77 :: STRATA_PF_FUSED unset: nothing is set up below sm_80 (skipped)
+  step 8's test under the same emulation with PF_FUSED empty (step 8's ctest entry): rc=1 :: prefill fused MoE (native formats) parity failed: Q2_0 / Q2_0: not covered by the native kernels
+  flag, Q2N, emulated 8.6 card (this commit's test): rc=1 :: 

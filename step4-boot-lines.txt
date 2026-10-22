@@ -1,0 +1,24 @@
+## step 4, arm stock, round 0 (--prefill auto)
+[strata] 2026-10-22 10:42:37 engine started: /ab/engines/v0.2.2/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata generate: 15 expert-pool workers + the host thread
+strata serve: prompt chunk auto: 4864 tokens, a 384-slot ring
+strata serve: 4163 MiB of VRAM free with everything loaded
+
+## step 4, arm base, round 0 (--prefill auto)
+[strata] 2026-10-22 10:44:51 engine started: /ab/engines/pf-q2n/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata generate: 15 expert-pool workers + the host thread
+strata serve: prompt chunk auto: 4864 tokens, a 384-slot ring
+strata serve: 4159 MiB of VRAM free with everything loaded
+
+## step 4, arm q2n, round 0 (--prefill auto)
+[strata] 2026-10-22 10:46:58 engine started: /ab/engines/pf-q2n/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --sp
+strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)
+strata generate: expert cache 2100 slots, 2.70 GiB of VRAM; policy is
+strata generate: 15 expert-pool workers + the host thread
+strata serve: prompt chunk auto: 5632 tokens, a 512-slot ring
+strata serve: 4159 MiB of VRAM free with everything loaded
+

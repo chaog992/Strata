@@ -1,0 +1,2 @@
+prefill fused MoE (native formats) parity failed: uploads: an illegal memory access was encountered
+Q2_0 / Q2_0 - reference part: 256 tokens, 64 experts, rows per expert: max 222, experts without rows 4

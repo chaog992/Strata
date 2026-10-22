@@ -1,0 +1,41 @@
+finalq2n vs final: mean KL 0.00938, max 0.11182, top-1 agreement 39/40, files differ
+    f01234-1536  1536 tok  KL 0.00079  top-1 same  max|dlogit| 1.8404  
+    f12340-2048  2048 tok  KL 0.00001  top-1 same  max|dlogit| 0.9967  
+    f23401-3072  3072 tok  KL 0.01297  top-1 same  max|dlogit| 1.2896  
+    f34012-4096  4096 tok  KL 0.03535  top-1 same  max|dlogit| 1.8811  
+    f40123-5000  5000 tok  KL 0.00075  top-1 same  max|dlogit| 1.2765  
+    f03142-2560  2560 tok  KL 0.00000  top-1 same  max|dlogit| 0.8836  
+    f14203-3584  3584 tok  KL 0.00792  top-1 same  max|dlogit| 0.8303  
+    f20413-4608  4608 tok  KL 0.01343  top-1 same  max|dlogit| 1.1326  
+    f01234-1024  1024 tok  KL 0.00000  top-1 same  max|dlogit| 0.0000  identical
+    f01342-1536  1536 tok  KL 0.00079  top-1 same  max|dlogit| 1.8404  
+    f02134-2048  2048 tok  KL 0.04326  top-1 same  max|dlogit| 1.2511  
+    f02341-2560  2560 tok  KL 0.00594  top-1 same  max|dlogit| 1.0013  
+    f03124-3072  3072 tok  KL 0.00132  top-1 same  max|dlogit| 0.7614  
+    f03241-3584  3584 tok  KL 0.00002  top-1 same  max|dlogit| 0.5860  
+    f04123-4096  4096 tok  KL 0.00075  top-1 same  max|dlogit| 1.8147  
+    f04231-4608  4608 tok  KL 0.01060  top-1 same  max|dlogit| 0.7815  
+    f10234-5000  5000 tok  KL 0.00002  top-1 same  max|dlogit| 3.1149  
+    f10342-1024  1024 tok  KL 0.00000  top-1 same  max|dlogit| 0.0000  identical
+    f12034-1536  1536 tok  KL 0.11182  top-1 DIFF  max|dlogit| 1.2289  
+    f12340-2048  2048 tok  KL 0.00001  top-1 same  max|dlogit| 0.9967  
+    f13024-2560  2560 tok  KL 0.00000  top-1 same  max|dlogit| 0.7241  
+    f13240-3072  3072 tok  KL 0.00004  top-1 same  max|dlogit| 1.4848  
+    f14023-3584  3584 tok  KL 0.00480  top-1 same  max|dlogit| 0.8683  
+    f14230-4096  4096 tok  KL 0.00551  top-1 same  max|dlogit| 0.8670  
+    f20134-4608  4608 tok  KL 0.00257  top-1 same  max|dlogit| 0.7216  
+    f20341-5000  5000 tok  KL 0.01958  top-1 same  max|dlogit| 1.2312  
+    f21034-1024  1024 tok  KL 0.00000  top-1 same  max|dlogit| 0.0000  identical
+    f21340-1536  1536 tok  KL 0.00012  top-1 same  max|dlogit| 1.0150  
+    f23014-2048  2048 tok  KL 0.00440  top-1 same  max|dlogit| 1.0624  
+    f23140-2560  2560 tok  KL 0.00004  top-1 same  max|dlogit| 0.9619  
+    f24013-3072  3072 tok  KL 0.01505  top-1 same  max|dlogit| 0.8654  
+    f24130-3584  3584 tok  KL 0.01627  top-1 same  max|dlogit| 1.2401  
+    f30124-4096  4096 tok  KL 0.00702  top-1 same  max|dlogit| 1.4684  
+    f30241-4608  4608 tok  KL 0.00419  top-1 same  max|dlogit| 0.8916  
+    f31024-5000  5000 tok  KL 0.00004  top-1 same  max|dlogit| 4.2242  
+    f31240-1024  1024 tok  KL 0.00000  top-1 same  max|dlogit| 0.0000  identical
+    f32014-1536  1536 tok  KL 0.02354  top-1 same  max|dlogit| 0.9482  
+    f32140-2048  2048 tok  KL 0.02401  top-1 same  max|dlogit| 0.9512  
+    f34012-2560  2560 tok  KL 0.00001  top-1 same  max|dlogit| 0.6081  
+    f34120-3072  3072 tok  KL 0.00216  top-1 same  max|dlogit| 0.8900  

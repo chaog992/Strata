@@ -1,0 +1,6 @@
+Q2_0 / Q2_0 - reference part: 256 tokens, 64 experts, rows per expert: max 222, experts without rows 4
+  fused vs the int8-rounded model (same activation / H rounding, double sums): rel RMS 1.494e-05  worst 1.014e-03
+  MMQ   vs FP32 reference: rel RMS 1.091e-02  worst row max rel 4.685e-02
+  fused vs FP32 reference: rel RMS 1.091e-02  worst row max rel 4.685e-02
+  fused vs MMQ           : rel RMS 1.543e-05  worst row max rel 1.014e-03
+prefill fused MoE (native formats) parity passed

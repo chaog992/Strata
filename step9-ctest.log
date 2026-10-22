@@ -1,0 +1,9 @@
+123: Test command: /ab/build/pf-q2n4/prefill_fused_iq_test
+123: Q2_0 / Q2_0: not set up on this device (skipped)
+1/2 Test #123: prefill_fused_iq_test ............   Passed   57.75 sec
+124: Test command: /ab/build/pf-q2n4/prefill_fused_iq_test "--only=Q2_0 / Q2_0" "--unset-pf-fused"
+124: Environment variables: 
+124:  STRATA_PF_FUSED_Q2N=1
+2/2 Test #124: prefill_fused_iq_test_q2n ........   Passed    9.19 sec
+The following tests passed:
+100% tests passed out of 2

@@ -1,0 +1,21 @@
+Q2_0 / Q2_0 - reference part: 256 tokens, 64 experts, rows per expert: max 222, experts without rows 4
+  fused vs the int8-rounded model (same activation / H rounding, double sums): rel RMS 1.494e-05  worst 1.014e-03
+  MMQ   vs FP32 reference: rel RMS 1.091e-02  worst row max rel 4.685e-02
+  fused vs FP32 reference: rel RMS 1.091e-02  worst row max rel 4.685e-02
+  fused vs MMQ           : rel RMS 1.543e-05  worst row max rel 1.014e-03
+  (MMQ's products alone, no gathers: 3.106 ms - fused 1.34x)
+  (fused back to back: median 2.318 ms, min 2.313; alternating min 2.309; MMQ min 4.423)
+  fused output bits hash ae1b595541adae97
+Q2_0 / Q2_0 - timing part: 2048 tokens x top 10 over 512 experts, one layer: MMQ path 4.438 ms, fused 2.311 ms (1.92x); fused vs MMQ rel RMS 2.663e-05 worst row 1.004e-02
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.717e-02 worst 6.363e-02, fused rel RMS 1.717e-02 worst 6.363e-02
+  (MMQ's products alone, no gathers: 4.854 ms - fused 1.05x)
+  (fused back to back: median 4.640 ms, min 4.626; alternating min 4.630; MMQ min 6.339)
+  fused output bits hash f96a0c08ed8ea90b
+Q2_0 / Q2_0 - timing part: 4864 tokens x top 10 over 512 experts, one layer: MMQ path 6.364 ms, fused 4.635 ms (1.37x); fused vs MMQ rel RMS 1.185e-05 worst row 1.045e-02
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.533e-02 worst 2.799e-01, fused rel RMS 1.533e-02 worst 2.799e-01
+  (MMQ's products alone, no gathers: 7.962 ms - fused 1.09x)
+  (fused back to back: median 7.300 ms, min 7.261; alternating min 7.288; MMQ min 9.479)
+  fused output bits hash 61464709ebb5bd8a
+Q2_0 / Q2_0 - timing part: 8192 tokens x top 10 over 512 experts, one layer: MMQ path 9.506 ms, fused 7.299 ms (1.30x); fused vs MMQ rel RMS 1.925e-05 worst row 9.621e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 2.711e-02 worst 1.093e-01, fused rel RMS 2.711e-02 worst 1.093e-01
+prefill fused MoE (native formats) parity passed

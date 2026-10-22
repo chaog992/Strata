@@ -1,0 +1,18 @@
+# step 9: the engine (pf-q2n4 = a76ab44b) with STRATA_PF_FUSED_Q2N=1 (kl_prompt.py run, 2 prompts of 2048 tokens)
+
+## console
+engine: /ab/engines/pf-q2n4/strata --serve --pack /data/Strata-data/packs/q2_0 --native /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf /data/Strata-data/models/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile /opt/strata/terminal/data/expert-profile.bin --expert-cache 2100 --prefill auto --spec 4 --spec-min-p 0.5 --mtp /data/Strata-data/mtp/rt --max-context 32768 --kv int8 --ple-io ram --pool-workers 15 --vram-reserve-mib 4096 --adapt-every 100000
+  o0-2048: 2048 tokens, DONE 1 2048 1561.5 31.1 length 0 0 0 98 245 0 0 0.0 2048 116 chunk=2047 experts_streamed=23595
+  o1-2048: 2048 tokens, DONE 1 2048 2709.1 14.3 length 0 0 0 174 288 0 0 0.0 2048 89 chunk=1079 experts_streamed=41317
+2 prompts; fused-path lines in stderr: 1
+
+## stderr lines of interest
+strata serve: prompt chunk auto: 5632 tokens, a 512-slot ring
+strata: prompt experts on the fused int8 kernels (STRATA_PF_FUSED=1, #136)
+strata serve: prompt 2048 tokens = 0 reused + 2048 read in 1562 ms (1311.6 tok/s), 1 generated in 31 ms (32.1 tok/s), drafts accepted 0 of 0, 0 checkpoints
+strata serve: prompt 2048 tokens = 0 reused + 2048 read in 2709 ms (756.0 tok/s), 1 generated in 14 ms (70.2 tok/s), drafts accepted 0 of 0, 1 checkpoints
+
+## index.json env and fused_lines
+env: []
+fused_lines: ['strata: prompt experts on the fused int8 kernels (STRATA_PF_FUSED=1, #136)']
+STRATA_PF_FUSED in args: False

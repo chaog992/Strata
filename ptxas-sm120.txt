@@ -1,0 +1,33 @@
+# ptxas -v register and spill counts (sm_120) behind the commit message's figures
+# A standalone 'nvcc -Xptxas -v' compile, CUDA 13.0.88 on a build box, of the pinned llama.cpp (3cf03257) MMQ sources and of
+# src/prefill/moe_fused_iq.cu at 9ae93f7b (v0.2.1.1; the kernels did not change through v0.2.2). ggml type 42 = Q2_0.
+
+## MMQ Q2_0, the 128-wide tiles (mul_mat_q<Q2_0, 128, need_check>)
+Compiling entry function '_Z9mul_mat_qIL9ggml_type42ELi128ELb1EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_' for 'sm_120a'
+Function properties for _Z9mul_mat_qIL9ggml_type42ELi128ELb1EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_
+    32 bytes stack frame, 32 bytes spill stores, 40 bytes spill loads
+Used 255 registers, used 1 barriers, 32 bytes cumulative stack size
+Compiling entry function '_Z9mul_mat_qIL9ggml_type42ELi128ELb0EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_' for 'sm_120a'
+Function properties for _Z9mul_mat_qIL9ggml_type42ELi128ELb0EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_
+    16 bytes stack frame, 40 bytes spill stores, 52 bytes spill loads
+Used 255 registers, used 1 barriers, 16 bytes cumulative stack size
+Compiling entry function '_Z9mul_mat_qIL9ggml_type42ELi128ELb1EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_' for 'sm_120'
+Function properties for _Z9mul_mat_qIL9ggml_type42ELi128ELb1EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_
+    32 bytes stack frame, 32 bytes spill stores, 40 bytes spill loads
+Used 255 registers, used 1 barriers, 32 bytes cumulative stack size
+Compiling entry function '_Z9mul_mat_qIL9ggml_type42ELi128ELb0EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_' for 'sm_120'
+Function properties for _Z9mul_mat_qIL9ggml_type42ELi128ELb0EEvPKcPKiS4_S4_PfS5_PKf5uint3iiiiiS8_S8_iiiS8_S8_iiiS8_
+    16 bytes stack frame, 40 bytes spill stores, 52 bytes spill loads
+Used 255 registers, used 1 barriers, 16 bytes cumulative stack size
+
+## fused native_kernel<Q2_0, gate/up, WW=2 | 4>
+Compiling entry function '_ZN6strata7prefill5fused48_GLOBAL__N__378acfaf_15_moe_fused_iq_cu_7f62d4d813native_kernelILi42ELb1ELi2EEEvNS1_5BatchENS1_10NativeGeomE
+Function properties for _ZN6strata7prefill5fused48_GLOBAL__N__378acfaf_15_moe_fused_iq_cu_7f62d4d813native_kernelILi42ELb1ELi2EEEvNS1_5BatchENS1_10NativeGeomENS
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 124 registers, used 1 barriers
+Compile time = 25.137 ms
+Compiling entry function '_ZN6strata7prefill5fused48_GLOBAL__N__378acfaf_15_moe_fused_iq_cu_7f62d4d813native_kernelILi42ELb1ELi4EEEvNS1_5BatchENS1_10NativeGeomE
+Function properties for _ZN6strata7prefill5fused48_GLOBAL__N__378acfaf_15_moe_fused_iq_cu_7f62d4d813native_kernelILi42ELb1ELi4EEEvNS1_5BatchENS1_10NativeGeomENS
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 128 registers, used 1 barriers
+Compile time = 22.164 ms
